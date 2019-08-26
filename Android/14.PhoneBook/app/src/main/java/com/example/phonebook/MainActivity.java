@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
         for(int i=0; i < phoneBookList.size(); i++) {
+            Log.d("tests", "inflate");
             View view = layoutInflater.inflate(R.layout.phone_book_item_view, null, false);
             TextView name = view.findViewById(R.id.name);
             TextView number =  view.findViewById(R.id.number);
@@ -101,5 +102,6 @@ public class MainActivity extends AppCompatActivity {
             });
             container.addView(view);
         }
+        Log.d("tests", "complete");
     }
 }

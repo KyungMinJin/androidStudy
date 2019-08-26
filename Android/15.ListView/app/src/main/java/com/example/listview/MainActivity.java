@@ -47,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
         list.add("가");
         list.add("가");
 
+
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View header = layoutInflater.inflate(R.layout.header_view, null, false);
+        View footer = layoutInflater.inflate(R.layout.footer_view, null, false);
+
+        listView.addHeaderView(header);
+        listView.addFooterView(footer);
+
         MyAdapter myAdapter = new MyAdapter(MainActivity.this, list);
         listView.setAdapter(myAdapter);
 

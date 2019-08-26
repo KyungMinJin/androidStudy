@@ -1,2 +1,2 @@
-# android_12.Library
+# androidStudy
 공부

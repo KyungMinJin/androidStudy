@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    ArrayList<String> list = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.list_view);
 
-        ArrayList<String> list = new ArrayList<>();
+
         list.add("가");
-        list.add("가");
+        list.add("나");
         list.add("가");
         list.add("가");
         list.add("가");
@@ -55,8 +57,19 @@ public class MainActivity extends AppCompatActivity {
         listView.addHeaderView(header);
         listView.addFooterView(footer);
 
-        MyAdapter myAdapter = new MyAdapter(MainActivity.this, list);
+
+        final MyAdapter myAdapter = new MyAdapter(MainActivity.this, list);
         listView.setAdapter(myAdapter);
+
+
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                list.set(1, "가");
+                Log.d("list_change", "list : " + list);
+                myAdapter.notifyDataSetChanged();
+            }
+        });
 
     }
 
